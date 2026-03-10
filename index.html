@@ -9,15 +9,17 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 <style>
 
+/* GENERAL */
+
 body{
 margin:0;
-font-family:'Fira Code',monospace;
+font-family:'Fira Code', monospace;
 background:#000;
 color:#e4e4e4;
 scroll-behavior:smooth;
@@ -30,50 +32,54 @@ height:100%;
 z-index:-1;
 }
 
+/* NAVBAR */
+
 nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
 background:#000;
 border-bottom:1px solid #111;
-text-align:center;
-padding:18px;
 position:sticky;
 top:0;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+.logo span{
+color:#22c55e;
 }
 
 nav a{
 color:#aaa;
 text-decoration:none;
-margin:15px;
-font-weight:600;
+margin-left:20px;
 }
 
 nav a:hover{
 color:#22c55e;
 }
 
-header{
-text-align:center;
-padding:90px 20px;
+/* HERO SECTION */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 10%;
+flex-wrap:wrap;
 }
 
-.logo{
-font-size:32px;
-color:#22c55e;
-font-weight:bold;
-letter-spacing:3px;
+.hero-text{
+max-width:600px;
 }
 
-.profile{
-width:170px;
-height:170px;
-border-radius:50%;
-border:4px solid #22c55e;
-margin-top:20px;
-object-fit:cover;
-}
-
-header h1{
-font-size:38px;
-margin-top:20px;
+.hero h1{
+font-size:40px;
 }
 
 .typing{
@@ -82,39 +88,54 @@ font-size:20px;
 margin-top:10px;
 }
 
-.buttons{
-margin-top:25px;
+.hero-img img{
+width:260px;
+border-radius:12px;
+border:3px solid #22c55e;
 }
 
-.btn{
-display:inline-block;
-padding:12px 20px;
-margin:6px;
-border-radius:6px;
-font-weight:bold;
-text-decoration:none;
+/* TOP ICON CONTACTS */
+
+.top-icons{
+margin-top:20px;
 }
 
-.email{background:#16a34a;color:white;}
-.whatsapp{background:#22c55e;color:white;}
-.linkedin{background:#0a66c2;color:white;}
-.github{background:#333;color:white;}
-.cv{background:#f59e0b;color:black;}
+.top-icons a{
+font-size:22px;
+margin-right:15px;
+color:#22c55e;
+}
 
-.btn:hover{
-transform:scale(1.08);
+.top-icons a:hover{
+color:#00ff9c;
+transform:scale(1.2);
 transition:.3s;
 }
 
-.terminal-clock{
-margin-top:30px;
-display:inline-block;
-padding:15px 25px;
-background:#000;
+/* CLOCK */
+
+.clock{
+margin-top:20px;
+padding:10px 15px;
 border:1px solid #22c55e;
-box-shadow:0 0 20px #22c55e;
+display:inline-block;
 color:#22c55e;
 }
+
+/* BUTTON */
+
+.cv-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 18px;
+background:#f59e0b;
+color:black;
+font-weight:bold;
+border-radius:6px;
+text-decoration:none;
+}
+
+/* SECTION */
 
 section{
 max-width:1000px;
@@ -124,9 +145,11 @@ padding:70px 20px;
 
 h2{
 color:#22c55e;
-border-left:5px solid #22c55e;
-padding-left:12px;
+border-left:4px solid #22c55e;
+padding-left:10px;
 }
+
+/* CARDS */
 
 .card{
 background:#111;
@@ -142,17 +165,18 @@ transform:translateY(-5px);
 transition:.3s;
 }
 
-.skills-container{
+/* SKILLS */
+
+.skills{
 display:flex;
 flex-wrap:wrap;
-justify-content:center;
-gap:12px;
+gap:10px;
 margin-top:20px;
 }
 
 .skill{
-padding:10px 18px;
 background:#111;
+padding:10px 15px;
 border:1px solid #22c55e;
 border-radius:6px;
 }
@@ -162,37 +186,29 @@ background:#22c55e;
 color:black;
 }
 
+/* CONTACT GRID */
+
 .contact-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
-margin-top:30px;
+margin-top:20px;
 }
 
 .contact-card{
 background:#111;
-padding:25px;
+padding:20px;
 text-align:center;
 border-radius:8px;
-border:1px solid #222;
 }
 
-.contact-icon{
-font-size:40px;
+.contact-card i{
+font-size:35px;
 color:#22c55e;
 margin-bottom:10px;
 }
 
-.contact-card a{
-color:white;
-text-decoration:none;
-}
-
-.contact-card:hover .contact-icon{
-color:#00ff9c;
-transform:scale(1.2);
-transition:.3s;
-}
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -211,48 +227,58 @@ color:#777;
 
 <nav>
 
+<div class="logo">Benon<span>.dev</span></div>
+
+<div>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#experience">Experience</a>
 <a href="#education">Education</a>
 <a href="#contact">Contact</a>
+</div>
 
 </nav>
 
-<header>
+<!-- HERO -->
 
-<div class="logo">Benon.Dev</div>
+<div class="hero">
 
-<img src="profile.jpg" class="profile">
+<div class="hero-text">
 
 <h1>Emanuel Cheruiyot Langat</h1>
 
 <div class="typing" id="typing"></div>
 
-<div class="buttons">
+<div class="top-icons">
 
-<a class="btn email" href="mailto:emanuellangat14@gmail.com">Email</a>
+<a href="mailto:emanuellangat14@gmail.com"><i class="fa-solid fa-envelope"></i></a>
 
-<a class="btn whatsapp" href="https://wa.me/qr/RL6KEC4QRBBQE1">WhatsApp</a>
+<a href="tel:+254711124061"><i class="fa-solid fa-phone"></i></a>
 
-<a class="btn linkedin" href="https://www.linkedin.com/in/emanuel-langat-16b242261">LinkedIn</a>
+<a href="https://wa.me/qr/RL6KEC4QRBBQE1"><i class="fa-brands fa-whatsapp"></i></a>
 
-<a class="btn github" href="https://github.com/emanuelangat">GitHub</a>
+<a href="https://www.linkedin.com/in/emanuel-langat-16b242261"><i class="fa-brands fa-linkedin"></i></a>
 
-<a class="btn cv" href="Emanuel-Langat-CV.pdf">Download CV</a>
-
-</div>
-
-<div class="terminal-clock">
-
-<div id="nairobi"></div>
-<div id="utc"></div>
-<div id="ny"></div>
+<a href="https://github.com/emanuelangat"><i class="fa-brands fa-github"></i></a>
 
 </div>
 
-</header>
+<div class="clock" id="clock"></div>
+
+<br>
+
+<a href="Emanuel-Langat-CV.pdf" class="cv-btn">Download CV</a>
+
+</div>
+
+<div class="hero-img">
+
+<img src="profile.jpg">
+
+</div>
+
+</div>
 
 <section id="about">
 
@@ -260,7 +286,7 @@ color:#777;
 
 <div class="card">
 
-Computer Science graduate from Maasai Mara University with strong skills in IT support, troubleshooting, networking, and web development. Passionate about building reliable systems and solving technical problems efficiently. Experienced in maintaining IT infrastructure and developing practical web applications.
+Computer Science graduate from Maasai Mara University with strong IT support and web development skills. Experienced in troubleshooting systems, managing IT infrastructure, and building practical software solutions.
 
 </div>
 
@@ -268,18 +294,18 @@ Computer Science graduate from Maasai Mara University with strong skills in IT s
 
 <section id="skills">
 
-<h2>Technical Skills</h2>
+<h2>Skills</h2>
 
-<div class="skills-container">
+<div class="skills">
 
-<div class="skill">HTML5</div>
-<div class="skill">CSS3</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
 <div class="skill">JavaScript</div>
 <div class="skill">Java</div>
 <div class="skill">Python</div>
 <div class="skill">SQL</div>
-<div class="skill">Git</div>
 <div class="skill">Linux</div>
+<div class="skill">Git</div>
 <div class="skill">Networking</div>
 <div class="skill">IT Support</div>
 
@@ -295,7 +321,7 @@ Computer Science graduate from Maasai Mara University with strong skills in IT s
 
 <b>Hotel Online Ordering System</b>
 
-<p>A web application enabling hotel customers to browse menus, place orders online, and track orders in real time. Designed to improve restaurant efficiency and customer experience.</p>
+<p>Web application enabling hotel customers to browse menus, order food online, and track orders efficiently.</p>
 
 </div>
 
@@ -303,15 +329,15 @@ Computer Science graduate from Maasai Mara University with strong skills in IT s
 
 <b>Online Transport Booking System</b>
 
-<p>A digital platform allowing passengers to search routes, book transport services, and receive booking confirmations online.</p>
+<p>Platform for booking transportation services online and managing reservations digitally.</p>
 
 </div>
 
 <div class="card">
 
-<b>DeepFace Animation System</b>
+<b>DeepFace Animation Project</b>
 
-<p>Final-year project exploring facial animation and deepfake technology using computer vision techniques to generate realistic facial movements.</p>
+<p>Final year research project exploring deepfake technology and facial animation using computer vision techniques.</p>
 
 </div>
 
@@ -328,17 +354,11 @@ June 2023 – January 2024
 
 <ul>
 
-<li>Installed and configured desktop computers, printers, and hospital network devices.</li>
-
-<li>Provided technical support to hospital staff and resolved hardware and software issues.</li>
-
-<li>Troubleshot network connectivity problems to maintain system uptime.</li>
-
-<li>Performed system maintenance, software installations, and security updates.</li>
-
-<li>Maintained IT inventory and documented technical issues for improved workflow.</li>
-
-<li>Assisted with network troubleshooting and system monitoring.</li>
+<li>Installed and configured computers and printers.</li>
+<li>Provided technical support for hospital staff.</li>
+<li>Troubleshot network connectivity issues.</li>
+<li>Maintained IT systems and software updates.</li>
+<li>Documented technical issues and resolutions.</li>
 
 </ul>
 
@@ -368,33 +388,33 @@ Graduated: 11 December 2023
 <div class="contact-grid">
 
 <div class="contact-card">
-<i class="fa-solid fa-envelope contact-icon"></i>
-<div>Email</div>
-<a href="mailto:emanuellangat14@gmail.com">emanuellangat14@gmail.com</a>
+<i class="fa-solid fa-envelope"></i>
+<p>Email</p>
+<p>emanuellangat14@gmail.com</p>
 </div>
 
 <div class="contact-card">
-<i class="fa-solid fa-phone contact-icon"></i>
-<div>Phone</div>
-<a href="tel:+254711124061">+254711124061</a>
+<i class="fa-solid fa-phone"></i>
+<p>Phone</p>
+<p>+254711124061</p>
 </div>
 
 <div class="contact-card">
-<i class="fa-brands fa-whatsapp contact-icon"></i>
-<div>WhatsApp</div>
-<a href="https://wa.me/qr/RL6KEC4QRBBQE1">Chat Now</a>
+<i class="fa-brands fa-whatsapp"></i>
+<p>WhatsApp</p>
+<p>Available for chat</p>
 </div>
 
 <div class="contact-card">
-<i class="fa-brands fa-linkedin contact-icon"></i>
-<div>LinkedIn</div>
-<a href="https://www.linkedin.com/in/emanuel-langat-16b242261">Profile</a>
+<i class="fa-brands fa-linkedin"></i>
+<p>LinkedIn</p>
+<p>Professional Profile</p>
 </div>
 
 <div class="contact-card">
-<i class="fa-brands fa-github contact-icon"></i>
-<div>GitHub</div>
-<a href="https://github.com/emanuelangat">github.com/emanuelangat</a>
+<i class="fa-brands fa-github"></i>
+<p>GitHub</p>
+<p>Project Repository</p>
 </div>
 
 </div>
@@ -410,61 +430,35 @@ Graduated: 11 December 2023
 <script>
 
 particlesJS("particles-js",{
-
 particles:{
 number:{value:80},
 color:{value:"#22c55e"},
-shape:{type:"circle"},
-opacity:{value:0.5},
 size:{value:3},
-line_linked:{
-enable:true,
-distance:120,
-color:"#22c55e",
-opacity:0.4
-},
+line_linked:{enable:true,color:"#22c55e"},
 move:{enable:true,speed:2}
 }
+})
 
-});
+const text="Computer Science Graduate | IT Support Technician | Web Developer"
 
-const text="Computer Science Graduate | IT Support Technician | Web Developer";
+let i=0
 
-let i=0;
-
-function type(){
-
+function typing(){
 if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,70);
-
+document.getElementById("typing").innerHTML+=text.charAt(i)
+i++
+setTimeout(typing,70)
+}
 }
 
-}
-
-type();
+typing()
 
 function clock(){
-
-const now=new Date();
-
-const nairobi=new Date(now.toLocaleString("en-US",{timeZone:"Africa/Nairobi"}));
-
-document.getElementById("nairobi").innerHTML="Nairobi: "+nairobi.toLocaleTimeString();
-
-document.getElementById("utc").innerHTML="UTC: "+now.toUTCString().slice(17,25);
-
-const ny=new Date(now.toLocaleString("en-US",{timeZone:"America/New_York"}));
-
-document.getElementById("ny").innerHTML="New York: "+ny.toLocaleTimeString();
-
+const now=new Date()
+document.getElementById("clock").innerHTML=now.toLocaleTimeString()
 }
 
-setInterval(clock,1000);
+setInterval(clock,1000)
 
 </script>
 
