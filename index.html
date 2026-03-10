@@ -28,6 +28,7 @@ border-bottom:1px solid #111;
 background:#000;
 position:sticky;
 top:0;
+z-index:100;
 }
 .logo{
 font-size:24px;
@@ -77,7 +78,7 @@ animation:glow 3s infinite alternate;
 0%{box-shadow:0 0 10px #22c55e;}
 100%{box-shadow:0 0 35px #22c55e;}
 }
-/* CONTACT ICONS TOP */
+/* TOP ICONS */
 .top-icons{
 margin-top:18px;
 }
@@ -85,6 +86,7 @@ margin-top:18px;
 color:#22c55e;
 font-size:20px;
 margin-right:14px;
+transition:0.2s;
 }
 .top-icons a:hover{
 transform:scale(1.2);
@@ -144,12 +146,14 @@ margin-bottom:5px;
 background:#111;
 height:10px;
 border-radius:6px;
+overflow:hidden;
 }
 .skill-fill{
 background:#22c55e;
 height:10px;
 border-radius:6px;
-transition:width 1s ease-in-out;
+width:0;
+transition:width 1.2s ease-in-out;
 }
 /* TERMINAL */
 .terminal{
@@ -158,9 +162,14 @@ border:1px solid #22c55e;
 padding:20px;
 margin-top:20px;
 color:#22c55e;
+font-family:'Fira Code', monospace;
+overflow:hidden;
+height:180px;
+position:relative;
 }
 .terminal-line{
 margin:6px 0;
+white-space:pre;
 }
 /* PROJECT GRID */
 #repos{
@@ -174,11 +183,17 @@ background:#0a0a0a;
 border:1px solid #1a1a1a;
 padding:20px;
 border-radius:8px;
+transition:0.2s;
 }
 .repo:hover{
 border-color:#22c55e;
+transform:translateY(-5px);
 }
-/* CONTACT SECTION */
+.repo h3{
+margin:0 0 10px 0;
+color:#22c55e;
+}
+/* CONTACT GRID */
 .contact-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -191,6 +206,7 @@ border:1px solid #1a1a1a;
 padding:25px;
 border-radius:8px;
 text-align:center;
+transition:0.2s;
 }
 .contact-card i{
 font-size:22px;
@@ -203,6 +219,7 @@ text-decoration:none;
 }
 .contact-card:hover{
 border-color:#22c55e;
+transform:translateY(-3px);
 }
 /* HIRE SECTION */
 .hire{
@@ -266,7 +283,7 @@ color:#666;
 </div>
 
 <div class="hero-img">
-<img src="profile.jpg">
+<img src="profile.jpg" alt="Emanuel Langat Profile">
 </div>
 </div>
 
@@ -281,39 +298,29 @@ Computer Science graduate passionate about IT support, networking, system troubl
 <!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
-
 <div class="skill">
 <span>HTML</span>
-<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+<div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
 </div>
-
 <div class="skill">
 <span>CSS</span>
-<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+<div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
 </div>
-
 <div class="skill">
 <span>JavaScript</span>
-<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+<div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
 </div>
-
 <div class="skill">
 <span>Networking</span>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+<div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
 </div>
-
 </section>
 
 <!-- TERMINAL -->
 <section id="terminal">
 <h2>Developer Terminal</h2>
-<div class="terminal">
-<div class="terminal-line">benon@portfolio:~$ whoami</div>
-<div class="terminal-line">Emanuel Cheruiyot Langat</div>
-<div class="terminal-line">benon@portfolio:~$ role</div>
-<div class="terminal-line">IT Support Technician | Web Developer</div>
-<div class="terminal-line">benon@portfolio:~$ university</div>
-<div class="terminal-line">Maasai Mara University</div>
+<div class="terminal" id="terminal-box">
+<!-- Terminal lines will populate here -->
 </div>
 </section>
 
@@ -336,37 +343,31 @@ Computer Science graduate passionate about IT support, networking, system troubl
 <section id="contact">
 <h2>Contact</h2>
 <div class="contact-grid">
-
 <div class="contact-card">
 <i class="fa-solid fa-envelope"></i>
 <p>Email</p>
 <a href="mailto:emanuellangat14@gmail.com">emanuellangat14@gmail.com</a>
 </div>
-
 <div class="contact-card">
 <i class="fa-solid fa-phone"></i>
 <p>Phone</p>
 <a href="tel:+254711124061">+254 711 124 061</a>
 </div>
-
 <div class="contact-card">
 <i class="fa-brands fa-linkedin"></i>
 <p>LinkedIn</p>
 <a href="https://linkedin.com">linkedin.com</a>
 </div>
-
 <div class="contact-card">
 <i class="fa-brands fa-github"></i>
 <p>GitHub</p>
 <a href="https://github.com/emanuelangat">github.com/emanuelangat</a>
 </div>
-
 <div class="contact-card">
 <i class="fa-solid fa-file-pdf"></i>
 <p>CV</p>
 <a href="Emanuel-Langat-CV.pdf" download>Download CV</a>
 </div>
-
 </div>
 </section>
 
@@ -376,46 +377,88 @@ Computer Science graduate passionate about IT support, networking, system troubl
 </footer>
 
 <script>
-/* TYPING */
-const text="Computer Science Graduate | IT Support Technician | Web Developer"
-let i=0
+/* TYPING ANIMATION */
+const text="Computer Science Graduate | IT Support Technician | Web Developer";
+let i=0;
 function typing(){
 if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i)
-i++
-setTimeout(typing,60)
-}
-}
-typing()
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,60);
+}}
+typing();
 
 /* CLOCK */
 function updateClock(){
-const now=new Date()
-document.getElementById("clock").innerHTML=now.toLocaleTimeString()
+const now=new Date();
+document.getElementById("clock").innerHTML=now.toLocaleTimeString();
 }
-setInterval(updateClock,1000)
+setInterval(updateClock,1000);
 
-/* GITHUB PROJECTS */
+/* SKILLS SCROLL ANIMATION */
+const skillFills = document.querySelectorAll(".skill-fill");
+window.addEventListener("scroll", ()=>{
+  skillFills.forEach(skill=>{
+    const pos = skill.getBoundingClientRect().top;
+    if(pos < window.innerHeight){
+      skill.style.width = skill.getAttribute("data-width");
+    }
+  });
+});
+
+/* TERMINAL ANIMATION */
+const terminalLines=[
+"benon@portfolio:~$ whoami",
+"Emanuel Cheruiyot Langat",
+"benon@portfolio:~$ role",
+"IT Support Technician | Web Developer",
+"benon@portfolio:~$ university",
+"Maasai Mara University"
+];
+let tIndex=0;
+function typeTerminal(){
+  if(tIndex<terminalLines.length){
+    const term=document.getElementById("terminal-box");
+    const div=document.createElement("div");
+    div.className="terminal-line";
+    term.appendChild(div);
+    let cIndex=0;
+    const line=terminalLines[tIndex];
+    function typeChar(){
+      if(cIndex<line.length){
+        div.innerHTML+=line[cIndex];
+        cIndex++;
+        setTimeout(typeChar,40);
+      } else {tIndex++; setTimeout(typeTerminal,400);}
+    }
+    typeChar();
+  }
+}
+typeTerminal();
+
+/* GITHUB PROJECTS SORTED BY STARS */
 fetch("https://api.github.com/users/emanuelangat/repos")
 .then(res=>res.json())
 .then(data=>{
-let repos=document.getElementById("repos")
+let repos=document.getElementById("repos");
+data.sort((a,b)=>b.stargazers_count-a.stargazers_count);
 data.slice(0,6).forEach(repo=>{
 repos.innerHTML+=`
 <div class="repo">
 <h3>${repo.name}</h3>
 <p>${repo.description || "Project repository"}</p>
+<p>⭐ ${repo.stargazers_count} | Forks: ${repo.forks_count}</p>
 <a href="${repo.html_url}" target="_blank">View Project</a>
 </div>
-`
-})
-})
+`;
+});
+});
 
 /* VISITOR COUNTER */
-let count=localStorage.getItem("visits")
-if(count==null){count=1}else{count++}
-localStorage.setItem("visits",count)
-document.getElementById("counter").innerText=count
+let count=localStorage.getItem("visits");
+if(count==null){count=1}else{count++;}
+localStorage.setItem("visits",count);
+document.getElementById("counter").innerText=count;
 </script>
 
 </body>
