@@ -1,393 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Emanuel Cheruiyot Langat | Portfolio</title>
 
-<!-- GOOGLE FONT -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 <style>
-/* GENERAL STYLES */
-body {
-  margin: 0;
-  font-family: 'Fira Code', monospace;
-  background: #000;
-  color: #e4e4e4;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  position: relative;
+
+body{
+margin:0;
+font-family:'Fira Code',monospace;
+background:#000;
+color:#e4e4e4;
+scroll-behavior:smooth;
 }
 
-/* PARTICLE BACKGROUND */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
-/* NAVBAR */
-nav {
-  background: rgba(0,0,0,0.85);
-  padding: 18px;
-  text-align: center;
-  border-bottom: 1px solid #222;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-nav a {
-  color: #bbb;
-  margin: 18px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-nav a:hover { color: #22c55e; }
-
-/* HEADER / HERO */
-header {
-  text-align: center;
-  padding: 100px 20px 60px 20px;
-  position: relative;
-}
-.logo {
-  font-size: 36px;
-  font-weight: bold;
-  color: #22c55e;
-  letter-spacing: 2px;
-  font-family: 'Fira Code', monospace;
-  margin-bottom: 10px;
-}
-.profile {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 4px solid #22c55e;
-  object-fit: cover;
-  margin-top: 20px;
-}
-header h1 {
-  font-size: 40px;
-  color: white;
-  margin-top: 20px;
-}
-.typing {
-  color: #22c55e;
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 12px;
+nav{
+background:#000;
+border-bottom:1px solid #111;
+text-align:center;
+padding:18px;
+position:sticky;
+top:0;
 }
 
-/* BUTTONS */
-.buttons {
-  margin-top: 20px;
-}
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  margin: 6px;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.email { background: #16a34a; color: white; }
-.whatsapp { background: #22c55e; color: white; }
-.linkedin { background: #0a66c2; color: white; }
-.github { background: #333; color: white; }
-.cv { background: #f59e0b; color: black; }
-.btn:hover { transform: scale(1.08); }
-
-/* TERMINAL-STYLE CLOCK */
-.terminal-clock {
-  font-family: monospace;
-  background: rgba(0,0,0,0.85);
-  color: #22c55e;
-  padding: 15px 20px;
-  border-radius: 8px;
-  text-align: center;
-  display: inline-block;
-  box-shadow: 0 0 20px #22c55e;
-  margin-top: 25px;
-}
-.terminal-clock span { display: block; font-size: 18px; }
-
-/* SECTIONS */
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 70px 20px;
-}
-h2 {
-  color: #22c55e;
-  border-left: 5px solid #22c55e;
-  padding-left: 12px;
-  font-size: 28px;
+nav a{
+color:#aaa;
+text-decoration:none;
+margin:15px;
+font-weight:600;
 }
 
-/* CARDS */
-.card {
-  background: #111;
-  padding: 25px;
-  margin-top: 20px;
-  border-radius: 8px;
-  border: 1px solid #222;
-  transition: 0.3s;
-}
-.card:hover {
-  border-color: #22c55e;
-  transform: translateY(-5px);
+nav a:hover{
+color:#22c55e;
 }
 
-/* SKILLS */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-.skill {
-  background: #111;
-  border: 1px solid #22c55e;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.skill:hover {
-  background: #22c55e;
-  color: black;
-  transform: scale(1.1);
+header{
+text-align:center;
+padding:90px 20px;
 }
 
-/* CONTACT GRID */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-.contact-card {
-  background: #111;
-  padding: 25px;
-  border-radius: 8px;
-  text-align: center;
-  border: 1px solid #222;
-}
-.contact-title {
-  color: #22c55e;
-  font-weight: bold;
-  margin-bottom: 10px;
+.logo{
+font-size:32px;
+color:#22c55e;
+font-weight:bold;
+letter-spacing:3px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  border-top: 1px solid #222;
-  color: #777;
-  margin-top: 40px;
+.profile{
+width:170px;
+height:170px;
+border-radius:50%;
+border:4px solid #22c55e;
+margin-top:20px;
+object-fit:cover;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  .profile { width: 130px; height: 130px; }
-  .typing { font-size: 16px; }
-  .terminal-clock { font-size: 14px; }
+header h1{
+font-size:38px;
+margin-top:20px;
 }
+
+.typing{
+color:#22c55e;
+font-size:20px;
+margin-top:10px;
+}
+
+.buttons{
+margin-top:25px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+margin:6px;
+border-radius:6px;
+font-weight:bold;
+text-decoration:none;
+}
+
+.email{background:#16a34a;color:white;}
+.whatsapp{background:#22c55e;color:white;}
+.linkedin{background:#0a66c2;color:white;}
+.github{background:#333;color:white;}
+.cv{background:#f59e0b;color:black;}
+
+.btn:hover{
+transform:scale(1.08);
+transition:.3s;
+}
+
+.terminal-clock{
+margin-top:30px;
+display:inline-block;
+padding:15px 25px;
+background:#000;
+border:1px solid #22c55e;
+box-shadow:0 0 20px #22c55e;
+color:#22c55e;
+}
+
+section{
+max-width:1000px;
+margin:auto;
+padding:70px 20px;
+}
+
+h2{
+color:#22c55e;
+border-left:5px solid #22c55e;
+padding-left:12px;
+}
+
+.card{
+background:#111;
+padding:25px;
+margin-top:20px;
+border-radius:8px;
+border:1px solid #222;
+}
+
+.card:hover{
+border-color:#22c55e;
+transform:translateY(-5px);
+transition:.3s;
+}
+
+.skills-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+}
+
+.skill{
+padding:10px 18px;
+background:#111;
+border:1px solid #22c55e;
+border-radius:6px;
+}
+
+.skill:hover{
+background:#22c55e;
+color:black;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.contact-card{
+background:#111;
+padding:25px;
+text-align:center;
+border-radius:8px;
+border:1px solid #222;
+}
+
+.contact-icon{
+font-size:40px;
+color:#22c55e;
+margin-bottom:10px;
+}
+
+.contact-card a{
+color:white;
+text-decoration:none;
+}
+
+.contact-card:hover .contact-icon{
+color:#00ff9c;
+transform:scale(1.2);
+transition:.3s;
+}
+
+footer{
+text-align:center;
+padding:40px;
+border-top:1px solid #111;
+color:#777;
+}
+
 </style>
 
-<!-- PARTICLE JS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 
 <body>
 
 <div id="particles-js"></div>
 
-<!-- NAVBAR -->
 <nav>
-  <a href="#about">ABOUT</a>
-  <a href="#skills">SKILLS</a>
-  <a href="#projects">PROJECTS</a>
-  <a href="#experience">EXPERIENCE</a>
-  <a href="#education">EDUCATION</a>
-  <a href="#contact">CONTACT</a>
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+
 </nav>
 
-<!-- HERO -->
 <header>
-  <div class="logo">Benon.Dev</div>
-  <img src="profile.jpg" class="profile">
-  <h1>Emanuel Cheruiyot Langat</h1>
-  <div class="typing" id="typing"></div>
 
-  <div class="buttons">
-    <a class="btn email" href="mailto:emanuellangat14@gmail.com">Email</a>
-    <a class="btn whatsapp" href="https://wa.me/qr/RL6KEC4QRBBQE1">WhatsApp</a>
-    <a class="btn linkedin" href="https://www.linkedin.com/in/emanuel-langat-16b242261">LinkedIn</a>
-    <a class="btn github" href="https://github.com/emanuelangat">GitHub</a>
-    <a class="btn cv" href="Emanuel-Langat-CV.pdf">Download CV</a>
-  </div>
+<div class="logo">Benon.Dev</div>
 
-  <div class="terminal-clock" id="terminal-clock">
-    <span id="local-time"></span>
-    <span id="utc-time"></span>
-    <span id="ny-time"></span>
-  </div>
+<img src="profile.jpg" class="profile">
+
+<h1>Emanuel Cheruiyot Langat</h1>
+
+<div class="typing" id="typing"></div>
+
+<div class="buttons">
+
+<a class="btn email" href="mailto:emanuellangat14@gmail.com">Email</a>
+
+<a class="btn whatsapp" href="https://wa.me/qr/RL6KEC4QRBBQE1">WhatsApp</a>
+
+<a class="btn linkedin" href="https://www.linkedin.com/in/emanuel-langat-16b242261">LinkedIn</a>
+
+<a class="btn github" href="https://github.com/emanuelangat">GitHub</a>
+
+<a class="btn cv" href="Emanuel-Langat-CV.pdf">Download CV</a>
+
+</div>
+
+<div class="terminal-clock">
+
+<div id="nairobi"></div>
+<div id="utc"></div>
+<div id="ny"></div>
+
+</div>
+
 </header>
 
-<!-- ABOUT -->
 <section id="about">
-<h2>ABOUT ME</h2>
+
+<h2>About Me</h2>
+
 <div class="card">
-Computer Science graduate from Maasai Mara University with IT support and web development experience. Skilled in troubleshooting, software development, and maintaining IT infrastructure. Passionate about building reliable and scalable software solutions.
+
+Computer Science graduate from Maasai Mara University with strong skills in IT support, troubleshooting, networking, and web development. Passionate about building reliable systems and solving technical problems efficiently. Experienced in maintaining IT infrastructure and developing practical web applications.
+
 </div>
+
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-<h2>TECHNICAL SKILLS</h2>
+
+<h2>Technical Skills</h2>
+
 <div class="skills-container">
-  <div class="skill">HTML5</div>
-  <div class="skill">CSS3</div>
-  <div class="skill">JavaScript</div>
-  <div class="skill">Java</div>
-  <div class="skill">Python</div>
-  <div class="skill">SQL</div>
-  <div class="skill">Git</div>
-  <div class="skill">Linux</div>
+
+<div class="skill">HTML5</div>
+<div class="skill">CSS3</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Java</div>
+<div class="skill">Python</div>
+<div class="skill">SQL</div>
+<div class="skill">Git</div>
+<div class="skill">Linux</div>
+<div class="skill">Networking</div>
+<div class="skill">IT Support</div>
+
 </div>
+
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-<h2>PROJECTS</h2>
+
+<h2>Projects</h2>
+
 <div class="card">
-<b>Smart Hotel Ordering System</b>
-<p>Web platform allowing hotel customers to browse menus, place orders online, and track order status in real-time.</p>
+
+<b>Hotel Online Ordering System</b>
+
+<p>A web application enabling hotel customers to browse menus, place orders online, and track orders in real time. Designed to improve restaurant efficiency and customer experience.</p>
+
 </div>
+
 <div class="card">
+
 <b>Online Transport Booking System</b>
-<p>Digital platform for passengers to book transportation services, manage reservations, and receive notifications about schedules.</p>
+
+<p>A digital platform allowing passengers to search routes, book transport services, and receive booking confirmations online.</p>
+
 </div>
+
 <div class="card">
+
 <b>DeepFace Animation System</b>
-<p>Final-year AI project exploring facial animation and deepfake technologies using computer vision algorithms to generate realistic animations.</p>
+
+<p>Final-year project exploring facial animation and deepfake technology using computer vision techniques to generate realistic facial movements.</p>
+
 </div>
+
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
-<h2>EXPERIENCE</h2>
+
+<h2>Experience</h2>
+
 <div class="card">
+
 <b>IT Support Technician — Tenwek Hospital</b><br>
 June 2023 – January 2024
+
 <ul>
-<li>Installed and configured desktop computers, printers, and network devices.</li>
-<li>Provided technical support for hospital staff on hardware and software issues.</li>
-<li>Troubleshot network and connectivity problems to ensure uptime.</li>
-<li>Maintained IT infrastructure and assisted with software updates.</li>
-<li>Documented IT issues and procedures for efficient workflow management.</li>
+
+<li>Installed and configured desktop computers, printers, and hospital network devices.</li>
+
+<li>Provided technical support to hospital staff and resolved hardware and software issues.</li>
+
+<li>Troubleshot network connectivity problems to maintain system uptime.</li>
+
+<li>Performed system maintenance, software installations, and security updates.</li>
+
+<li>Maintained IT inventory and documented technical issues for improved workflow.</li>
+
+<li>Assisted with network troubleshooting and system monitoring.</li>
+
 </ul>
+
 </div>
+
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
-<h2>EDUCATION</h2>
+
+<h2>Education</h2>
+
 <div class="card">
-Bachelor of Science in Computer Science<br>
-Maasai Mara University<br>
-Lower Second Class Division<br>
+
+Bachelor of Science in Computer Science  
+Maasai Mara University  
+Lower Second Class Division  
 Graduated: 11 December 2023
+
 </div>
+
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-<h2>CONTACT</h2>
+
+<h2>Contact</h2>
+
 <div class="contact-grid">
-  <div class="contact-card">
-    <div class="contact-title">Email</div>
-    emanuellangat14@gmail.com
-  </div>
-  <div class="contact-card">
-    <div class="contact-title">Phone</div>
-    +254711124061
-  </div>
-  <div class="contact-card">
-    <div class="contact-title">WhatsApp</div>
-    <a href="https://wa.me/qr/RL6KEC4QRBBQE1">Chat Now</a>
-  </div>
+
+<div class="contact-card">
+<i class="fa-solid fa-envelope contact-icon"></i>
+<div>Email</div>
+<a href="mailto:emanuellangat14@gmail.com">emanuellangat14@gmail.com</a>
 </div>
+
+<div class="contact-card">
+<i class="fa-solid fa-phone contact-icon"></i>
+<div>Phone</div>
+<a href="tel:+254711124061">+254711124061</a>
+</div>
+
+<div class="contact-card">
+<i class="fa-brands fa-whatsapp contact-icon"></i>
+<div>WhatsApp</div>
+<a href="https://wa.me/qr/RL6KEC4QRBBQE1">Chat Now</a>
+</div>
+
+<div class="contact-card">
+<i class="fa-brands fa-linkedin contact-icon"></i>
+<div>LinkedIn</div>
+<a href="https://www.linkedin.com/in/emanuel-langat-16b242261">Profile</a>
+</div>
+
+<div class="contact-card">
+<i class="fa-brands fa-github contact-icon"></i>
+<div>GitHub</div>
+<a href="https://github.com/emanuelangat">github.com/emanuelangat</a>
+</div>
+
+</div>
+
 </section>
 
 <footer>
+
 © 2026 Emanuel Cheruiyot Langat
+
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-// PARTICLE JS CONFIG
-particlesJS("particles-js", {
-  "particles": {
-    "number": {"value": 80,"density":{"enable":true,"value_area":800}},
-    "color": {"value":"#22c55e"},
-    "shape": {"type":"circle"},
-    "opacity": {"value":0.5,"random":true},
-    "size": {"value":3,"random":true},
-    "line_linked": {"enable":true,"distance":120,"color":"#22c55e","opacity":0.4,"width":1},
-    "move": {"enable":true,"speed":2,"direction":"none","random":false,"straight":false,"out_mode":"out"}
-  },
-  "interactivity": {"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"}}},
-  "retina_detect": true
+
+particlesJS("particles-js",{
+
+particles:{
+number:{value:80},
+color:{value:"#22c55e"},
+shape:{type:"circle"},
+opacity:{value:0.5},
+size:{value:3},
+line_linked:{
+enable:true,
+distance:120,
+color:"#22c55e",
+opacity:0.4
+},
+move:{enable:true,speed:2}
+}
+
 });
 
-// TYPING ANIMATION
-const text = "Computer Science Student | Web Developer | Future Software Engineer";
-let index = 0;
-function typeEffect(){
-  if(index < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeEffect,80);
-  }
-}
-typeEffect();
+const text="Computer Science Graduate | IT Support Technician | Web Developer";
 
-// TERMINAL-STYLE CLOCK WITH WORLD TIME
-function updateTerminalClock(){
-  const now = new Date();
+let i=0;
 
-  // Local time (Nairobi)
-  const nairobiTime = new Date(now.toLocaleString("en-US", {timeZone:"Africa/Nairobi"}));
-  const nairobiH = nairobiTime.getHours().toString().padStart(2,'0');
-  const nairobiM = nairobiTime.getMinutes().toString().padStart(2,'0');
-  const nairobiS = nairobiTime.getSeconds().toString().padStart(2,'0');
-  document.getElementById("local-time").textContent = "Nairobi: " + nairobiH + ":" + nairobiM + ":" + nairobiS;
+function type(){
 
-  // UTC time
-  const utc = new Date(now.toUTCString());
-  document.getElementById("utc-time").textContent = "UTC: " + utc.getHours().toString().padStart(2,'0') + ":" +
-                                                  utc.getMinutes().toString().padStart(2,'0') + ":" +
-                                                  utc.getSeconds().toString().padStart(2,'0');
+if(i<text.length){
 
-  // New York time (Eastern)
-  const nyTime = new Date(now.toLocaleString("en-US", {timeZone:"America/New_York"}));
-  document.getElementById("ny-time").textContent = "New York: " + nyTime.getHours().toString().padStart(2,'0') + ":" +
-                                                  nyTime.getMinutes().toString().padStart(2,'0') + ":" +
-                                                  nyTime.getSeconds().toString().padStart(2,'0');
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,70);
+
 }
 
-updateTerminalClock();
-setInterval(updateTerminalClock,1000);
+}
+
+type();
+
+function clock(){
+
+const now=new Date();
+
+const nairobi=new Date(now.toLocaleString("en-US",{timeZone:"Africa/Nairobi"}));
+
+document.getElementById("nairobi").innerHTML="Nairobi: "+nairobi.toLocaleTimeString();
+
+document.getElementById("utc").innerHTML="UTC: "+now.toUTCString().slice(17,25);
+
+const ny=new Date(now.toLocaleString("en-US",{timeZone:"America/New_York"}));
+
+document.getElementById("ny").innerHTML="New York: "+ny.toLocaleTimeString();
+
+}
+
+setInterval(clock,1000);
+
 </script>
+
 </body>
 </html>
