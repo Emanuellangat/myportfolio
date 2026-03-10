@@ -176,6 +176,50 @@ h2{
   transition:width 1.2s ease-in-out;
 }
 
+/* EDUCATION SLIDER */
+.education-slider{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  padding-top:20px;
+  scroll-behavior:smooth;
+}
+.education-slider::-webkit-scrollbar{
+  height:6px;
+}
+.education-slider::-webkit-scrollbar-thumb{
+  background:#22c55e;
+  border-radius:3px;
+}
+.edu-card{
+  min-width:250px;
+  flex-shrink:0;
+  background:#0a0a0a;
+  border:1px solid #1a1a1a;
+  padding:20px;
+  border-radius:8px;
+  transition:transform 0.2s, border-color 0.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+}
+.edu-card:hover{
+  transform:translateY(-5px);
+  border-color:#22c55e;
+}
+.edu-card strong{
+  font-size:16px;
+  color:#22c55e;
+}
+.edu-card small{
+  color:#aaa;
+}
+.edu-card i{
+  color:#22c55e;
+  font-size:18px;
+}
+
 /* PROJECT GRID */
 #repos{
   display:grid;
@@ -246,6 +290,7 @@ footer{
   <div class="logo">Benon<span>.dev</span></div>
   <div>
     <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
@@ -263,7 +308,6 @@ footer{
       <a href="tel:+254711124061"><i class="fa-solid fa-phone"></i></a>
       <a href="https://github.com/emanuelangat"><i class="fa-brands fa-github"></i></a>
       <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="images/emanuel.png" download><i class="fa-solid fa-file-pdf"></i></a>
     </div>
 
     <a href="Emanuel-Langat-CV.pdf" class="cv-btn" download>Download CV</a>
@@ -282,6 +326,30 @@ footer{
 <div class="card">
 Computer Science graduate passionate about IT support, networking, system troubleshooting, and web development. Experienced in supporting enterprise systems and building modern web applications.
 </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="education-slider">
+    <div class="edu-card">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <strong>Maasai Mara University</strong><br>
+      Bachelor of Science in Computer Science<br>
+      <small>Graduated: 8 Dec 2023</small>
+    </div>
+    <div class="edu-card">
+      <i class="fa-solid fa-certificate"></i>
+      <strong>Oracle Academy</strong><br>
+      Java Foundation Certification<br>
+      <small>Online Course Completed</small>
+    </div>
+    <div class="edu-card">
+      <i class="fa-solid fa-certificate"></i>
+      <strong>Computer Packages Certification</strong><br>
+      Distinction – Microsoft Applications Online Courses
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
@@ -379,7 +447,7 @@ window.addEventListener("scroll", ()=>{
   });
 });
 
-/* GITHUB PROJECTS SORTED BY STARS */
+/* GITHUB PROJECTS */
 fetch("https://api.github.com/users/emanuelangat/repos")
 .then(res=>res.json())
 .then(data=>{
@@ -402,6 +470,13 @@ let count=localStorage.getItem("visits");
 if(count==null){count=1}else{count++;}
 localStorage.setItem("visits",count);
 document.getElementById("counter").innerText=count;
+
+/* EDUCATION SCROLL WITH MOUSE */
+const slider = document.querySelector(".education-slider");
+slider.addEventListener("wheel", (evt)=>{
+  evt.preventDefault();
+  slider.scrollLeft += evt.deltaY;
+});
 </script>
 
 </body>
