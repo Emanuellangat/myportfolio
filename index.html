@@ -89,7 +89,7 @@ nav a:hover{
 }
 .top-icons a{
   color:#22c55e;
-  font-size:16px;  /* smaller icons */
+  font-size:16px;
   margin-right:12px;
   transition:0.2s;
 }
@@ -116,7 +116,7 @@ nav a:hover{
   display:inline-block;
   margin-top:20px;
   padding:10px 16px;
-  background:#111; /* same as background */
+  background:#111;
   color:#22c55e;
   font-weight:bold;
   border-radius:6px;
@@ -176,23 +176,6 @@ h2{
   transition:width 1.2s ease-in-out;
 }
 
-/* TERMINAL */
-.terminal{
-  background:#050505;
-  border:1px solid #22c55e;
-  padding:20px;
-  margin-top:20px;
-  color:#22c55e;
-  font-family:'Fira Code', monospace;
-  overflow:hidden;
-  height:180px;
-  position:relative;
-}
-.terminal-line{
-  margin:6px 0;
-  white-space:pre;
-}
-
 /* PROJECT GRID */
 #repos{
   display:grid;
@@ -232,37 +215,18 @@ h2{
   transition:0.2s;
 }
 .contact-card i{
-  font-size:16px; /* smaller icons */
+  font-size:16px;
   color:#22c55e;
   margin-bottom:6px;
 }
 .contact-card a{
   color:#22c55e;
   text-decoration:none;
-  font-size:14px; /* smaller text */
+  font-size:14px;
 }
 .contact-card:hover{
   border-color:#22c55e;
   transform:translateY(-3px);
-}
-
-/* HIRE SECTION */
-.hire{
-  text-align:center;
-  background:#050505;
-  padding:40px;
-  border:1px solid #22c55e;
-  border-radius:8px;
-}
-.hire-btn{
-  margin-top:20px;
-  display:inline-block;
-  padding:12px 20px;
-  background:#22c55e;
-  color:black;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:6px;
 }
 
 /* FOOTER */
@@ -284,7 +248,6 @@ footer{
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#terminal">Terminal</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -300,14 +263,14 @@ footer{
       <a href="tel:+254711124061"><i class="fa-solid fa-phone"></i></a>
       <a href="https://github.com/emanuelangat"><i class="fa-brands fa-github"></i></a>
       <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="Emanuel-Langat-CV.pdf" download><i class="fa-solid fa-file-pdf"></i></a>
+      <a href="images/emanuel.png" download><i class="fa-solid fa-file-pdf"></i></a>
     </div>
 
     <a href="Emanuel-Langat-CV.pdf" class="cv-btn" download>Download CV</a>
   </div>
 
   <div class="hero-img">
-    <img src="profile.jpg" alt="Emanuel Langat Profile">
+    <img src="images/emanuel.png" alt="Emanuel Langat Profile">
   </div>
 
   <div class="clock" id="clock"></div>
@@ -342,25 +305,10 @@ Computer Science graduate passionate about IT support, networking, system troubl
 </div>
 </section>
 
-<!-- TERMINAL -->
-<section id="terminal">
-<h2>Developer Terminal</h2>
-<div class="terminal" id="terminal-box"></div>
-</section>
-
 <!-- PROJECTS -->
 <section id="projects">
 <h2>GitHub Projects</h2>
 <div id="repos"></div>
-</section>
-
-<!-- HIRE ME -->
-<section>
-<div class="hire">
-<h2>Hire Me</h2>
-<p>I am available for IT Support, System Administration, and Web Development opportunities.</p>
-<a class="hire-btn" href="mailto:emanuellangat14@gmail.com">Hire Me</a>
-</div>
 </section>
 
 <!-- CONTACT -->
@@ -430,36 +378,6 @@ window.addEventListener("scroll", ()=>{
     }
   });
 });
-
-/* TERMINAL ANIMATION */
-const terminalLines=[
-  "benon@portfolio:~$ whoami",
-  "Emanuel Cheruiyot Langat",
-  "benon@portfolio:~$ role",
-  "IT Support Technician | Web Developer",
-  "benon@portfolio:~$ university",
-  "Maasai Mara University"
-];
-let tIndex=0;
-function typeTerminal(){
-  if(tIndex<terminalLines.length){
-    const term=document.getElementById("terminal-box");
-    const div=document.createElement("div");
-    div.className="terminal-line";
-    term.appendChild(div);
-    let cIndex=0;
-    const line=terminalLines[tIndex];
-    function typeChar(){
-      if(cIndex<line.length){
-        div.innerHTML+=line[cIndex];
-        cIndex++;
-        setTimeout(typeChar,40);
-      } else {tIndex++; setTimeout(typeTerminal,400);}
-    }
-    typeChar();
-  }
-}
-typeTerminal();
 
 /* GITHUB PROJECTS SORTED BY STARS */
 fetch("https://api.github.com/users/emanuelangat/repos")
